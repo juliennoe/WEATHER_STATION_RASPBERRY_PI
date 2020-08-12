@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 import os
 from tkinter import Tk, Button, Canvas, PhotoImage
 
-imageSoleil = 'GITHUB/openImagePython/test/SOLEIL.png'
+imageSoleil = 'Desktop/weather/openImagePython/test/SOLEIL2.png'
 
 fenetre = Tk()
 fenetre.attributes('-fullscreen', True)
@@ -23,6 +23,5 @@ can.pack(fill='both', expand=1)
 Button(can,text='Quitter', command=fenetre.destroy).pack()
 
 fenetre.mainloop()
-#print('hello world')
-#image = Image.open('GITHUB/openImagePython/test/SOLEIL.png')
+
 
