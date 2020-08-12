@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 import os
 from tkinter import Tk, Button, Canvas, PhotoImage
 from datetime import datetime, timedelta
+import pytz
 
 image_clear_sky = 'GITHUB/openImagePython/test/CLEAR_SKY.jpg'
 image_few_clouds = 'GITHUB/openImagePython/test/FEW_CLOUDS.jpg'
@@ -37,6 +38,11 @@ if x["cod"] != "404":
     current_lon = c["lon"]
     current_lat = c["lat"]
   
+    tz_paris = pytz.timezone('Europe/Paris')
+    now = datetime.now(tz_paris)
+    current_time = now.strftime('%H:%M:%S')
+    print("Heure actuelle = ", current_time)
+
     # print following values 
     print(" Temperature (in celsius unit) = " + str(current_temperature) + 
             "\n humidity (in percentage) = " + str(current_humidiy) +
@@ -96,17 +102,4 @@ can.pack(fill='both', expand=1)
 Button(can,text='Quitter', command=fenetre.destroy).place(x=0, y=0)
 
 fenetre.mainloop()
-
-"""
-
-while 1:
-    print  = 'Run something..'
-
-    dt = datetime.now() + timedelta(hours=1)
-    dt = dt.replace(minute=10)
-
-    while datetime.now() < dt:
-        time.sleep(1)
-
-"""
 
