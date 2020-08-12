@@ -11,10 +11,10 @@ import os
 
   
 # Enter your API key here 
-api_key = "48540063268e4840b02b778e58656233"
+#api_key = "48540063268e4840b02b778e58656233"
   
 # base_url variable to store url 
-base_url = "http://api.openweathermap.org/data/2.5/weather?appid=48540063268e4840b02b778e58656233&q=redene,fr&units=metric"
+base_url = "http://api.openweathermap.org/data/2.5/weather?appid=48540063268e4840b02b778e58656233&q=laval,fr&units=metric"
 
 # complete_url variable to store 
 # complete url address 
