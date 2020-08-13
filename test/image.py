@@ -8,16 +8,16 @@ import pytz
 import schedule
 import time
 
-image_clear_sky = 'GITHUB/openImagePython/test/CLEAR_SKY.jpg'
-image_few_clouds = 'GITHUB/openImagePython/test/FEW_CLOUDS.jpg'
-image_scattered_cloud = 'GITHUB/openImagePython/test/SCATTERED_CLOUDS.jpg'
-image_broken_clouds = 'GITHUB/openImagePython/test/BROKEN_CLOUDS.jpg'
-image_light_rain = 'GITHUB/openImagePython/test/RAIN.jpg'
-image_shower_rain = 'GITHUB/openImagePython/test/RAIN.jpg'
-image_rain = 'GITHUB/openImagePython/test/RAIN.jpg'
-image_thunderstorm = 'GITHUB/openImagePython/test/THUNDERSTORM.jpg'
-image_snow = 'GITHUB/openImagePython/test/SNOW.jpg'
-image_mist = 'GITHUB/openImagePython/test/SCATTERED_CLOUDS.jpg'
+image_clear_sky = '/home/pi/GITHUB/openImagePython/test/CLEAR_SKY.jpg'
+image_few_clouds = '/home/pi/GITHUB/openImagePython/test/FEW_CLOUDS.jpg'
+image_scattered_cloud = '/home/pi/GITHUB/openImagePython/test/SCATTERED_CLOUDS.jpg'
+image_broken_clouds = '/home/pi/GITHUB/openImagePython/test/BROKEN_CLOUDS.jpg'
+image_light_rain = '/home/pi/GITHUB/openImagePython/test/RAIN.jpg'
+image_shower_rain = '/home/pi/GITHUB/openImagePython/test/RAIN.jpg'
+image_rain = '/home/pi/GITHUB/openImagePython/test/RAIN.jpg'
+image_thunderstorm = '/home/pi/GITHUB/openImagePython/test/THUNDERSTORM.jpg'
+image_snow = '/home/pi/GITHUB/openImagePython/test/SNOW.jpg'
+image_mist = '/home/pi/GITHUB/openImagePython/test/SCATTERED_CLOUDS.jpg'
 
 wheater_data = ''
 
@@ -90,6 +90,7 @@ def update_weather():
 
     fenetre = Tk()
     fenetre.attributes('-fullscreen', True)
+    print(wheater_data)
 
     w, h = fenetre.winfo_screenwidth(),fenetre.winfo_screenheight()
 
@@ -106,12 +107,9 @@ def update_weather():
 
     fenetre.after(30000, lambda: fenetre.destroy())
     fenetre.mainloop()
-    
 
 schedule.every(3).seconds.do(update_weather)
 
 
 while 1:
     schedule.run_pending()
-   
-  
