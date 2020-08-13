@@ -6,6 +6,7 @@ from tkinter import Tk, Button, Canvas, PhotoImage
 from datetime import datetime, timedelta
 import pytz
 import schedule
+import time
 
 image_clear_sky = 'GITHUB/openImagePython/test/CLEAR_SKY.jpg'
 image_few_clouds = 'GITHUB/openImagePython/test/FEW_CLOUDS.jpg'
@@ -103,9 +104,14 @@ def update_weather():
 
     Button(can,text='Quitter', command=fenetre.destroy).place(x=0, y=0)
 
+    fenetre.after(30000, lambda: fenetre.destroy())
     fenetre.mainloop()
+    
 
 schedule.every(3).seconds.do(update_weather)
 
+
 while 1:
-    schedule.run_pending() 
+    schedule.run_pending()
+   
+  
