@@ -1,3 +1,4 @@
+#LIBRARY
 import requests
 import json
 from PIL import Image, ImageTk
@@ -8,28 +9,41 @@ import pytz
 import schedule
 import time
 
-image_clear_sky = '/home/pi/GITHUB/openImagePython/test/CLEAR_SKY.jpg'
-image_few_clouds = '/home/pi/GITHUB/openImagePython/test/FEW_CLOUDS.jpg'
-image_scattered_cloud = '/home/pi/GITHUB/openImagePython/test/SCATTERED_CLOUDS.jpg'
-image_broken_clouds = '/home/pi/GITHUB/openImagePython/test/BROKEN_CLOUDS.jpg'
-image_light_rain = '/home/pi/GITHUB/openImagePython/test/RAIN.jpg'
-image_shower_rain = '/home/pi/GITHUB/openImagePython/test/RAIN.jpg'
-image_rain = '/home/pi/GITHUB/openImagePython/test/RAIN.jpg'
-image_thunderstorm = '/home/pi/GITHUB/openImagePython/test/THUNDERSTORM.jpg'
-image_snow = '/home/pi/GITHUB/openImagePython/test/SNOW.jpg'
-image_mist = '/home/pi/GITHUB/openImagePython/test/SCATTERED_CLOUDS.jpg'
+#IMAGE REFERENCE PATH
+main_path = "/home/pi/"
+image_clear_sky = main_path +'GITHUB/openImagePython/test/CLEAR_SKY.jpg'
+image_few_clouds = main_path +'GITHUB/openImagePython/test/FEW_CLOUDS.jpg'
+image_scattered_cloud = main_path +'GITHUB/openImagePython/test/SCATTERED_CLOUDS.jpg'
+image_broken_clouds = main_path +'GITHUB/openImagePython/test/BROKEN_CLOUDS.jpg'
+image_light_rain = main_path +'GITHUB/openImagePython/test/RAIN.jpg'
+image_shower_rain = main_path +'GITHUB/openImagePython/test/RAIN.jpg'
+image_rain = main_path +'GITHUB/openImagePython/test/RAIN.jpg'
+image_thunderstorm = main_path +'GITHUB/openImagePython/test/THUNDERSTORM.jpg'
+image_snow = main_path +'GITHUB/openImagePython/test/SNOW.jpg'
+image_mist = main_path +'GITHUB/openImagePython/test/SCATTERED_CLOUDS.jpg'
 
+#WHEATER_API_INFO
 wheater_data = ''
+city_name = input("Météo pour quelle ville ?:")
+api_key = "48540063268e4840b02b778e58656233"
+base_url = "http://api.openweathermap.org/data/2.5/weather?"
+complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=metric"
 
+print(complete_url)
+
+# FOR PLAY ONLY ONE CITY
+#base_url = "http://api.openweathermap.org/data/2.5/weather?appid=48540063268e4840b02b778e58656233&q=caen&units=metric"
+#complete_url = base_url
+
+#WHEATER_FUNCTION
 def update_weather():
-    base_url = "http://api.openweathermap.org/data/2.5/weather?appid=48540063268e4840b02b778e58656233&q=caen&units=metric"
-    complete_url = base_url
 
+    #JSON_REQUEST
     response = requests.get(complete_url) 
 
     x = response.json() 
 
-    if x["cod"] != "404": 
+    if x["cod"] != "404":
   
         y = x["main"] 
         current_temperature = y["temp"]  
@@ -46,7 +60,7 @@ def update_weather():
         current_time = now.strftime('%H:%M:%S')
         print("Heure actuelle = ", current_time)
 
-        # print following values 
+        #PRINT_FOLLOW_VALUES
         print(" Temperature (in celsius unit) = " + str(current_temperature) + 
             "\n humidity (in percentage) = " + str(current_humidiy) +
             "\n description = " + str(weather_description))
@@ -55,6 +69,7 @@ def update_weather():
             # "\n longitude = " + str(current_lon) +
             # "\n latitude = " + str(current_lat))
 
+    #CHOOSE_IMAGE_PRISM
     if weather_description == 'clear sky':
         wheater_data = image_clear_sky
 
@@ -88,6 +103,7 @@ def update_weather():
     else :
         print('le temps ne correspond pas')
 
+    #WINDOW_CREATION_FULL_SIZE
     fenetre = Tk()
     fenetre.attributes('-fullscreen', True)
     print(wheater_data)
@@ -103,11 +119,12 @@ def update_weather():
     can.create_image(0, 0, anchor='nw', image=photo)
     can.pack(fill='both', expand=1)
 
-    Button(can,text='Quitter', command=fenetre.destroy).place(x=0, y=0)
+    Button(can,text='EXIT', command=fenetre.destroy).place(x=0, y=0)
 
     fenetre.after(30000, lambda: fenetre.destroy())
     fenetre.mainloop()
 
+#RUN_FUNCTION_WITH_TIMING
 schedule.every(3).seconds.do(update_weather)
 
 
