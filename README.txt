@@ -30,6 +30,6 @@ cd GITHUB/openImagePython/test
 git clone https://github.com/mchobby/lcdmtrx.git
 mettre image.py dans dossier lcdmtrx
 cp GITHUB/openImagePython/test/image.py GITHUB/openImagePython/test/lcdmtrx/
-mettre clean_screen.py dans dossier lcdmtrx
+mettre clear_screen.py dans dossier lcdmtrx
 cp GITHUB/openImagePython/test/clean_screen.py GITHUB/openImagePython/test/lcdmtrx/
 python3 image.py
