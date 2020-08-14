@@ -14,6 +14,9 @@ curl -L https://raw.githubusercontent.com/headmelted/codebuilds/master/docs/inst
 
 UPDATE / UPGRADE linux
 
+sudo apt-get update
+sudo apt-get upgrade
+
 sudo apt-get install python3-tk
 pip3 install pytz
 pip3 install schedule
