@@ -24,4 +24,7 @@ Mkdir GITHUB
 cd GITHUB
 git clone https://github.com/juliennoe/openImagePython.git
 cd GITHUB/openImagePython/test
+git clone https://github.com/mchobby/lcdmtrx.git
+mettre image.py dans dossier lcdmtrx
+mettre clean_screen.py dans dossier lcdmtrx
 python3 image.py
