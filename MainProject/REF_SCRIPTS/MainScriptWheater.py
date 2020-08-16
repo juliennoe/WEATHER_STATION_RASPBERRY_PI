@@ -17,14 +17,10 @@ lcd = LcdBackpack('/dev/ttyACM0', 115200)
 lcd.connect()
 lcd.clear()
 
-lcd.set_autoscroll(True)
-lcd.set_cursor_home()
-
 LCD_COLS = 16
 LCD_ROWS = 2
 
 lcd.set_lcd_size(LCD_COLS, LCD_ROWS)
-os.system("python clear_screen.py")
 
 #IMAGE REFERENCE PATH
 main_path = "/home/pi/"
@@ -51,10 +47,9 @@ print(complete_url)
 
 #WHEATER_FUNCTION
 def update_weather():
-
+    
     #JSON_REQUEST
     response = requests.get(complete_url) 
-
     x = response.json() 
 
     if x["cod"] != "404":
@@ -82,12 +77,15 @@ def update_weather():
             # "\n description = " + str(weather_description) +
             # "\n longitude = " + str(current_lon) +
             # "\n latitude = " + str(current_lat))
-   
+    lcd.clear()
     # WRITE DATA ON LCD SCREEN
-    lcd.write("degres: " + str(current_temperature) + 
-            "\rhumidity: " + str(current_humidiy) +
-            "\rcity: " + str(city_name))
 
+    lcd.set_autoscroll(True)
+    lcd.write("CITY: " + str(city_name) +
+            "\rDEGRES: " + str(current_temperature))
+            #"\rhum: " + str(current_humidiy))
+            
+            
     # CHANGE LCD COLOR WITH TEMPERATURE
     if current_temperature < 15:
         lcd.set_backlight_blue()
@@ -95,8 +93,8 @@ def update_weather():
         lcd.set_backlight_green()
     if current_temperature > 27:
         lcd.set_backlight_red()
-  
-
+    
+    """
     #CHOOSE_IMAGE_PRISM
     if weather_description == 'clear sky':
         wheater_data = image_clear_sky
@@ -154,9 +152,9 @@ def update_weather():
 
     fenetre.after(600000, lambda: fenetre.destroy())
     fenetre.mainloop()
-
-    lcd.clear()
-
+    """
+    #lcd.clear()
+    
 #RUN_FUNCTION_WITH_TIMING
 
 schedule.every(3).seconds.do(update_weather)
