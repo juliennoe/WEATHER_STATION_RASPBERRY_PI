@@ -8,20 +8,25 @@ from datetime import datetime, timedelta
 import pytz
 import schedule
 import time
-from lcdmtrx import LcdMatrix
+#from lcdmtrx import LcdMatrix
 import sys
 import serial
+from lcdbackpack import LcdBackpack
 
 #SET_ADAFRUIT_LCD
-PORT_SERIE = '/dev/ttyACM0'
+#PORT_SERIE = '/dev/ttyACM0'
+#lcd = LcdMatrix(PORT_SERIE)
+lcd = LcdBackpack('/dev/ttyACM0', 115200)
+lcd.connect()
+lcd.clear()
 
-lcd = LcdMatrix(PORT_SERIE)
+lcd.set_autoscroll(True)
+lcd.set_cursor_home()
 
 LCD_COLS = 16
 LCD_ROWS = 2
 
-#lcd.color(255,17,30)
-
+lcd.set_lcd_size(LCD_COLS, LCD_ROWS)
 os.system("python clear_screen.py")
 
 #IMAGE REFERENCE PATH
@@ -84,8 +89,18 @@ def update_weather():
             # "\n longitude = " + str(current_lon) +
             # "\n latitude = " + str(current_lat))
    
-    lcd.write("degres:".encode() + " ".encode() + str(current_temperature).encode() + " C".encode() +
-     "\r".encode() + "humidity:".encode() + " ".encode() + str(current_humidiy).encode() + " %".encode())
+    lcd.write("degres: " + str(current_temperature) + 
+            "\rhumidity: " + str(current_humidiy) +
+            "\rcity: " + str(city_name))
+
+    
+    if current_temperature < 15:
+        lcd.set_backlight_blue()
+    if current_temperature > 15:
+        lcd.set_backlight_green()
+    if current_temperature > 27:
+        lcd.set_backlight_red()
+  
 
     #CHOOSE_IMAGE_PRISM
     if weather_description == 'clear sky':
@@ -95,6 +110,9 @@ def update_weather():
         wheater_data = image_few_clouds
 
     elif weather_description == 'broken clouds':
+        wheater_data = image_broken_clouds
+    
+    elif weather_description == 'overcast clouds':
         wheater_data = image_broken_clouds
 
     elif weather_description == 'scattered clouds':
@@ -139,8 +157,10 @@ def update_weather():
 
     Button(can,text='EXIT', command=fenetre.destroy).place(x=0, y=0)
 
-    fenetre.after(30000, lambda: fenetre.destroy())
+    fenetre.after(600000, lambda: fenetre.destroy())
     fenetre.mainloop()
+
+    lcd.clear()
 
 #RUN_FUNCTION_WITH_TIMING
 
