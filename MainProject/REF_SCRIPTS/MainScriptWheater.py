@@ -8,14 +8,11 @@ from datetime import datetime, timedelta
 import pytz
 import schedule
 import time
-#from lcdmtrx import LcdMatrix
 import sys
 import serial
 from lcdbackpack import LcdBackpack
 
-#SET_ADAFRUIT_LCD
-#PORT_SERIE = '/dev/ttyACM0'
-#lcd = LcdMatrix(PORT_SERIE)
+#LCD CONFIGUTATION WITH LCDBACKPACK
 lcd = LcdBackpack('/dev/ttyACM0', 115200)
 lcd.connect()
 lcd.clear()
@@ -31,16 +28,16 @@ os.system("python clear_screen.py")
 
 #IMAGE REFERENCE PATH
 main_path = "/home/pi/"
-image_clear_sky = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/CLEAR_SKY.jpg'
-image_few_clouds = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/FEW_CLOUDS.jpg'
-image_scattered_cloud = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/SCATTERED_CLOUDS.jpg'
-image_broken_clouds = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/BROKEN_CLOUDS.jpg'
-image_light_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/RAIN.jpg'
-image_shower_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/RAIN.jpg'
-image_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/RAIN.jpg'
-image_thunderstorm = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/THUNDERSTORM.jpg'
-image_snow = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/SNOW.jpg'
-image_mist = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/SCATTERED_CLOUDS.jpg'
+image_clear_sky = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/CLEAR_SKY.jpg'
+image_few_clouds = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/FEW_CLOUDS.jpg'
+image_scattered_cloud = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/SCATTERED_CLOUDS.jpg'
+image_broken_clouds = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/BROKEN_CLOUDS.jpg'
+image_light_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/RAIN.jpg'
+image_shower_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/RAIN.jpg'
+image_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/RAIN.jpg'
+image_thunderstorm = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/THUNDERSTORM.jpg'
+image_snow = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/SNOW.jpg'
+image_mist = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/SCATTERED_CLOUDS.jpg'
 
 #WHEATER_API_INFO
 wheater_data = ''
@@ -51,9 +48,6 @@ complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=metri
 
 print(complete_url)
 
-# FOR PLAY ONLY ONE CITY
-#base_url = "http://api.openweathermap.org/data/2.5/weather?appid=48540063268e4840b02b778e58656233&q=caen&units=metric"
-#complete_url = base_url
 
 #WHEATER_FUNCTION
 def update_weather():
@@ -89,11 +83,12 @@ def update_weather():
             # "\n longitude = " + str(current_lon) +
             # "\n latitude = " + str(current_lat))
    
+    # WRITE DATA ON LCD SCREEN
     lcd.write("degres: " + str(current_temperature) + 
             "\rhumidity: " + str(current_humidiy) +
             "\rcity: " + str(city_name))
 
-    
+    # CHANGE LCD COLOR WITH TEMPERATURE
     if current_temperature < 15:
         lcd.set_backlight_blue()
     if current_temperature > 15:
@@ -165,7 +160,6 @@ def update_weather():
 #RUN_FUNCTION_WITH_TIMING
 
 schedule.every(3).seconds.do(update_weather)
-
 
 while 1:
     schedule.run_pending()
