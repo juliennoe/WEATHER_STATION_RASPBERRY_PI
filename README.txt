@@ -14,6 +14,9 @@ curl -L https://raw.githubusercontent.com/headmelted/codebuilds/master/docs/inst
 
 UPDATE / UPGRADE linux
 
+sudo apt-get update
+sudo apt-get upgrade
+
 sudo apt-get install python3-tk
 pip3 install pytz
 pip3 install schedule
@@ -26,5 +29,7 @@ git clone https://github.com/juliennoe/openImagePython.git
 cd GITHUB/openImagePython/test
 git clone https://github.com/mchobby/lcdmtrx.git
 mettre image.py dans dossier lcdmtrx
-mettre clean_screen.py dans dossier lcdmtrx
+cp GITHUB/openImagePython/test/image.py GITHUB/openImagePython/test/lcdmtrx/
+mettre clear_screen.py dans dossier lcdmtrx
+cp GITHUB/openImagePython/test/clean_screen.py GITHUB/openImagePython/test/lcdmtrx/
 python3 image.py
