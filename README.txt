@@ -9,7 +9,6 @@ sudo ./MHS35-show
 INSTALL VISUAL STUDIO CODE (OPTIONNAL)
 
 wget https://packagecloud.io/headmelted/codebuilds/gpgkey -O - | sudo apt-key add -
-
 curl -L https://raw.githubusercontent.com/headmelted/codebuilds/master/docs/installers/apt.sh | sudo bash
 
 UPDATE / UPGRADE linux
@@ -25,11 +24,9 @@ CLONE REPOSITORY
 
 Mkdir GITHUB
 cd GITHUB
-git clone https://github.com/juliennoe/openImagePython.git
-cd GITHUB/openImagePython/test
-git clone https://github.com/mchobby/lcdmtrx.git
-mettre image.py dans dossier lcdmtrx
-cp GITHUB/openImagePython/test/image.py GITHUB/openImagePython/test/lcdmtrx/
-mettre clear_screen.py dans dossier lcdmtrx
-cp GITHUB/openImagePython/test/clean_screen.py GITHUB/openImagePython/test/lcdmtrx/
-python3 image.py
+git clone https://github.com/juliennoe/Wheater_Station_pi.git
+
+START SCRIPT
+
+cd GITHUB/Wheater_Station_pi/MainProject/REF_SCRIPTS
+python3 MainScriptWheater.py
