@@ -31,16 +31,16 @@ os.system("python clear_screen.py")
 
 #IMAGE REFERENCE PATH
 main_path = "/home/pi/"
-image_clear_sky = main_path +'GITHUB/openImagePython/test/CLEAR_SKY.jpg'
-image_few_clouds = main_path +'GITHUB/openImagePython/test/FEW_CLOUDS.jpg'
-image_scattered_cloud = main_path +'GITHUB/openImagePython/test/SCATTERED_CLOUDS.jpg'
-image_broken_clouds = main_path +'GITHUB/openImagePython/test/BROKEN_CLOUDS.jpg'
-image_light_rain = main_path +'GITHUB/openImagePython/test/RAIN.jpg'
-image_shower_rain = main_path +'GITHUB/openImagePython/test/RAIN.jpg'
-image_rain = main_path +'GITHUB/openImagePython/test/RAIN.jpg'
-image_thunderstorm = main_path +'GITHUB/openImagePython/test/THUNDERSTORM.jpg'
-image_snow = main_path +'GITHUB/openImagePython/test/SNOW.jpg'
-image_mist = main_path +'GITHUB/openImagePython/test/SCATTERED_CLOUDS.jpg'
+image_clear_sky = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/CLEAR_SKY.jpg'
+image_few_clouds = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/FEW_CLOUDS.jpg'
+image_scattered_cloud = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/SCATTERED_CLOUDS.jpg'
+image_broken_clouds = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/BROKEN_CLOUDS.jpg'
+image_light_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/RAIN.jpg'
+image_shower_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/RAIN.jpg'
+image_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/RAIN.jpg'
+image_thunderstorm = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/THUNDERSTORM.jpg'
+image_snow = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/SNOW.jpg'
+image_mist = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER/SCATTERED_CLOUDS.jpg'
 
 #WHEATER_API_INFO
 wheater_data = ''
