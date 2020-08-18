@@ -11,10 +11,7 @@ INSTALL VISUAL STUDIO CODE (OPTIONNAL)
 wget https://packagecloud.io/headmelted/codebuilds/gpgkey -O - | sudo apt-key add -
 curl -L https://raw.githubusercontent.com/headmelted/codebuilds/master/docs/installers/apt.sh | sudo bash
 
-UPDATE / UPGRADE linux
-
-sudo apt-get update
-sudo apt-get upgrade
+INSTALL LIBRARY 
 
 sudo apt-get install python3-tk
 pip3 install pytz
@@ -30,3 +27,8 @@ START SCRIPT
 
 cd GITHUB/Wheater_Station_pi/MainProject/REF_SCRIPTS
 python3 MainScriptWheater.py
+
+UPDATE / UPGRADE linux
+
+sudo apt-get update
+sudo apt-get upgrade
