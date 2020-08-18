@@ -24,16 +24,16 @@ lcd.set_lcd_size(LCD_COLS, LCD_ROWS)
 
 #IMAGE REFERENCE PATH
 main_path = "/home/pi/"
-image_clear_sky = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/CLEAR_SKY.jpg'
-image_few_clouds = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/FEW_CLOUDS.jpg'
-image_scattered_cloud = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/SCATTERED_CLOUDS.jpg'
-image_broken_clouds = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/BROKEN_CLOUDS.jpg'
-image_light_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/RAIN.jpg'
-image_shower_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/RAIN.jpg'
-image_rain = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/RAIN.jpg'
-image_thunderstorm = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/THUNDERSTORM.jpg'
-image_snow = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/SNOW.jpg'
-image_mist = main_path +'GITHUB/openImagePython/MainProject/REF_WHEATER_IMAGES/SCATTERED_CLOUDS.jpg'
+image_clear_sky = main_path +'GITHUB/Wheater_Station_pi/MainProject/REF_WHEATER_IMAGES/CLEAR_SKY.jpg'
+image_few_clouds = main_path +'GITHUB/Wheater_Station_pi/MainProject/REF_WHEATER_IMAGES/FEW_CLOUDS.jpg'
+image_scattered_cloud = main_path +'GITHUB/Wheater_Station_pi/MainProject/REF_WHEATER_IMAGES/SCATTERED_CLOUDS.jpg'
+image_broken_clouds = main_path +'GITHUB/Wheater_Station_pi/MainProject/REF_WHEATER_IMAGES/BROKEN_CLOUDS.jpg'
+image_light_rain = main_path +'GITHUB/Wheater_Station_pi/MainProject/REF_WHEATER_IMAGES/RAIN.jpg'
+image_shower_rain = main_path +'GITHUB/Wheater_Station_pi/MainProject/REF_WHEATER_IMAGES/RAIN.jpg'
+image_rain = main_path +'GITHUB/Wheater_Station_pi/MainProject/REF_WHEATER_IMAGES/RAIN.jpg'
+image_thunderstorm = main_path +'GITHUB/Wheater_Station_pi/MainProject/REF_WHEATER_IMAGES/THUNDERSTORM.jpg'
+image_snow = main_path +'GITHUB/Wheater_Station_pi/MainProject/REF_WHEATER_IMAGES/SNOW.jpg'
+image_mist = main_path +'GITHUB/Wheater_Station_pi/MainProject/REF_WHEATER_IMAGES/SCATTERED_CLOUDS.jpg'
 
 #WHEATER_API_INFO
 wheater_data = ''
