@@ -2,7 +2,7 @@ INSTALL SCREEN MHS35
 
 sudo rm -rf LCD-show
 sudo git clone https://github.com/goodtft/LCD-show.git
-chmod -R 755 LCD-show
+sudo chmod -R 755 LCD-show
 cd LCD-show
 sudo ./MHS35-show
 
