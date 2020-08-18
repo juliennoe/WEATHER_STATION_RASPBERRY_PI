@@ -94,7 +94,7 @@ def update_weather():
     if current_temperature > 27:
         lcd.set_backlight_red()
     
-    """
+    
     #CHOOSE_IMAGE_PRISM
     if weather_description == 'clear sky':
         wheater_data = image_clear_sky
@@ -152,8 +152,8 @@ def update_weather():
 
     fenetre.after(600000, lambda: fenetre.destroy())
     fenetre.mainloop()
-    """
-    #lcd.clear()
+    
+    lcd.clear()
     
 #RUN_FUNCTION_WITH_TIMING
 
