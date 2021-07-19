@@ -1,3 +1,6 @@
+START INSTALLATION
+
+
 INSTALL SCREEN MHS35
 
 sudo rm -rf LCD-show
